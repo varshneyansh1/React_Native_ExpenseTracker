@@ -1,79 +1,29 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 📊 Expense Tracker App
 
-# Getting Started
+## 🚀 Introduction
+The **Expense Tracker App** is a React Native application designed to help users track their expenses effortlessly by reading SMS messages related to transactions. With a user-friendly interface and real-time updates, you can stay on top of your finances.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## 🛠️ Features
+- **SMS Integration**: Automatically fetches SMS messages related to expenses.
+- **Expense Categorization**: Categorizes expenses into different categories such as Food, Transport, Bills, and more.
+- **Search Functionality**: Easily search and filter expenses by keywords.
+- **Data Storage**: Saves expense data locally using AsyncStorage.
+- **User-Friendly Interface**: Intuitive design for seamless navigation.
 
-## Step 1: Start the Metro Server
+## 📱 Usage
+1. **Launch the App**: Open the Expense Tracker App on your device.
+2. **Grant Permissions**: When prompted, grant the app permission to read your SMS messages. This is essential for fetching transaction details.
+3. **View Transactions**: The app will automatically fetch and display your transaction messages from your SMS inbox. You can easily see all your expenses in one place.
+4. **Search for Expenses**: Use the search bar to filter and find specific expenses quickly. Type in keywords related to your expenses, and the app will show matching results.
+5. **View Details**: Tap on any expense to view detailed information, including the amount, date, and description.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## 📸 Screenshots
+Here are some screenshots of the app in action:
 
-To start Metro, run the following command from the _root_ of your React Native project:
+### Home Screen
+![Home Screen](assets/s1.jpg)
+*Home Screen - View all your expenses*
 
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+### Expense Details Screen
+![Expense Details Screen](assets/s2.jpg)
+*Expense Details - View detailed information about your expenses*
