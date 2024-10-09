@@ -19,7 +19,6 @@ const Tracker = () => {
   const [searchText, setSearchText] = useState('');
   const navigation = useNavigation();
 
-
   const categories = {
     Food: [
       'restaurant',
@@ -46,6 +45,33 @@ const Tracker = () => {
     Bills: ['electricity', 'water', 'internet', 'bill', 'utility'],
     Others: [],
   };
+
+  // Common transaction keywords to filter SMS messages
+  const transactionKeywords = [
+    'debited',
+    'credited',
+    'payment',
+    'amount',
+    'balance',
+    'upi',
+    'transaction',
+    'purchase',
+    'spent',
+    'withdrawn',
+    'received',
+    'refunded',
+    'transfer',
+    'atm',
+    'bank',
+    'charge',
+    'loan',
+    'rent',
+    'has been reversed',
+    'dear upi user', 
+    'ac',
+    'ref no', 
+    'txn', // transaction
+  ];
 
   // Request SMS permission on component mount
   useEffect(() => {
@@ -91,9 +117,6 @@ const Tracker = () => {
   // Load expenses from AsyncStorage on mount
   const loadExpensesFromStorage = async () => {
     try {
-      // (this helps in clearing duplicates)
-      await AsyncStorage.clear();
-
       const storedExpenses = await AsyncStorage.getItem('@expenses');
       if (storedExpenses !== null) {
         setExpenses(JSON.parse(storedExpenses));
@@ -116,6 +139,14 @@ const Tracker = () => {
     }
   };
 
+  // Function to check if an SMS contains any transaction keywords
+  const containsTransactionKeyword = (message) => {
+    const lowerCaseMessage = message.toLowerCase();
+    return transactionKeywords.some((keyword) =>
+      lowerCaseMessage.includes(keyword)
+    );
+  };
+
   // Fetch and filter SMS messages related to expenses
   const fetchSms = () => {
     SmsAndroid.list(
@@ -129,6 +160,7 @@ const Tracker = () => {
       (count, smsList) => {
         const messages = JSON.parse(smsList);
         const expenseMessages = messages
+          .filter(sms => containsTransactionKeyword(sms.body)) // Filter by transaction keywords
           .map(extractExpenseInfo)
           .filter(expense => expense.amount); // Only keep valid expenses
 
@@ -146,10 +178,11 @@ const Tracker = () => {
 
   // Function to extract expense-related information from SMS
   const extractExpenseInfo = sms => {
-    const expensePattern = /(?:INR|₹)\s*([\d,]+\.\d{2})/i;
+    const expensePattern = /(?:INR|₹|Rs)\s*([\d,]+(?:\.\d{1,2})?)/i; // Enhanced pattern
     const amountMatch = sms.body.match(expensePattern);
 
-    const datePattern = /(\d{2}\/\d{2}\/\d{4})/; // Example pattern
+    // Adjusted date pattern to capture more formats
+    const datePattern = /(\d{1,2}[-\/]\d{1,2}[-\/]\d{2,4})/; 
     const dateMatch = sms.body.match(datePattern);
 
     const amount = amountMatch ? amountMatch[1].replace(/,/g, '') : null;
@@ -222,7 +255,6 @@ const Tracker = () => {
       date.includes(searchText)
     );
   });
-
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
@@ -231,8 +263,8 @@ const Tracker = () => {
 
       <TextInput
         style={styles.searchBar}
-        placeholderTextColor={"#00796b"}
         placeholder="Search expenses..."
+        placeholderTextColor={"#00796b"}
         value={searchText}
         onChangeText={searchExpenses}
       />
@@ -288,47 +320,45 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     elevation: 2,
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
   },
   amount: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#00796b',
     marginRight: 16,
   },
   details: {
     flex: 1,
-    justifyContent: 'center',
   },
   description: {
-    fontSize: 14,
-    color: '#004d40',
+    fontSize: 16,
+    color: '#00796b',
   },
   date: {
-    fontSize: 12,
+    fontSize: 14,
     color: '#00796b',
   },
   category: {
-    fontSize: 12,
+    fontSize: 14,
     color: '#00796b',
-    fontStyle: 'italic',
+    fontWeight: 'bold',
+  },
+  emptyText: {
+    textAlign: 'center',
+    fontSize: 16,
+    marginVertical: 20,
+    color: '#00796b',
   },
   searchBar: {
     height: 40,
     borderColor: '#00796b',
     borderWidth: 1,
     borderRadius: 8,
-    paddingHorizontal: 10,
-    marginBottom: 16,
-    color:'#00796b',
-    backgroundColor:'#e0f7fa'
-  },
-  emptyText: {
-    textAlign: 'center',
+    paddingHorizontal: 8,
     color: '#00796b',
-    fontSize: 16,
-    marginVertical: 20,
+    marginBottom: 10,
   },
 });
