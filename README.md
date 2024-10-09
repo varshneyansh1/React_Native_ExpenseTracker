@@ -21,7 +21,7 @@ The **Expense Tracker App** is a React Native application designed to help users
 Here are some screenshots of the app in action:
 
 ### Home Screen
-![Home Screen](assets/s1.jpg)
+![Home Screen](assets/s11.jpg)
 *Home Screen - View all your expenses*
 
 ### Expense Details Screen
