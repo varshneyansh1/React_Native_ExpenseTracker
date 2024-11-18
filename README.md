@@ -24,6 +24,7 @@ Here are some screenshots of the app in action:
 <div align="center">
 
 ### Home Screen and Expense Details Screen
+
 <img src="assets/s11.jpg" height="400" style="margin: 10px;">  
 *Home Screen - View all your expenses*
 
@@ -31,3 +32,4 @@ Here are some screenshots of the app in action:
 *Expense Details - View detailed information about your expenses*
 
 </div>
+
