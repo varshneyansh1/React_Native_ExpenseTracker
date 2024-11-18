@@ -24,12 +24,17 @@ Here are some screenshots of the app in action:
 <div align="center">
 
 ### Home Screen and Expense Details Screen
-<img src="assets/s11.jpg" height="400" style="margin: 10px;">  
-*Home Screen - View all your expenses*
 
-<img src="assets/s2.jpg" height="400" style="margin: 10px;">  
-*Expense Details - View detailed information about your expenses*
-
+<div style="display: flex; justify-content: center; gap: 20px;">
+  <div>
+    <img src="assets/s11.jpg" height="400" style="margin: 10px;">  
+    <p align="center">*Home Screen - View all your expenses*</p>
+  </div>
+  <div>
+    <img src="assets/s2.jpg" height="400" style="margin: 10px;">  
+    <p align="center">*Expense Details - View detailed information about your expenses*</p>
+  </div>
 </div>
 
+</div>
 
