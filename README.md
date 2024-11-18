@@ -18,12 +18,16 @@ The **Expense Tracker App** is a React Native application designed to help users
 5. **View Details**: Tap on any expense to view detailed information, including the amount, date, and description.
 
 ## 📸 Screenshots
+
 Here are some screenshots of the app in action:
 
-### Home Screen
-![Home Screen](assets/s11.jpg)
+<div align="center">
+
+### Home Screen and Expense Details Screen
+<img src="assets/s11.jpg" height="400" style="margin: 10px;">  
 *Home Screen - View all your expenses*
 
-### Expense Details Screen
-![Expense Details Screen](assets/s2.jpg)
+<img src="assets/s2.jpg" height="400" style="margin: 10px;">  
 *Expense Details - View detailed information about your expenses*
+
+</div>
